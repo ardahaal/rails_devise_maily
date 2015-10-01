@@ -1,58 +1,27 @@
-Rails Devise
+Rails Devise Maily Test app
 ========================
 
-This application was generated with the rails_apps_composer gem:
-https://github.com/RailsApps/rails_apps_composer
-provided by the RailsApps Project:
-http://railsapps.github.io/
+ruby 2.2.2
+Please adjust gemfile (maily_herald and maily_herlad-webui)
 
-________________________
+------------------------
 
-Recipes:
+bundle install
 
-* apps4
-* controllers
-* core
-* email
-* extras
-* frontend
-* gems
-* git
-* init
-* models
-* prelaunch
-* railsapps
-* readme
-* routes
-* saas
-* setup
-* testing
-* views
+rake maily_herald:install:migrations
+rake secret  (-> adjust config.secrets.yml)
+rake db:migrate
+rake db:seed
 
-Preferences:
+rails generate layout:devise bootstrap3
 
-* git: true
-* apps4: rails-devise
-* unit_test: false
-* integration: false
-* fixtures: false
-* authentication: devise
-* authorization: false
-* starter_app: false
-* quiet_assets: true
-* local_env_file: false
-* better_errors: true
-* dev_webserver: webrick
-* prod_webserver: same
-* database: sqlite
-* templates: erb
-* continuous_testing: none
-* frontend: simple
-* email: gmail
-* devise_modules: default
-* form_builder: none
-* rvmrc: true
+gem install mailcatcher
+gem install foreman
 
-________________________
+------------------------
 
-License
+Procfile:
+
+web: bundle exec rails s
+worker: bundle exec sidekiq -v
+paperboy: bundle exec maily_herald paperboy
