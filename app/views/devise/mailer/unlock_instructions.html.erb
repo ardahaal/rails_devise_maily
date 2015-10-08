@@ -5,3 +5,7 @@
 <p>Click the link below to unlock your account:</p>
 
 <p><%= link_to 'Unlock my account', unlock_url(@resource, unlock_token: @token) %></p>
+
+<hr/>
+
+<p><%= link_to 'Unsubscribe?', maily_herald_engine.maily_unsubscribe_url(MailyHerald::Subscription.where(entity_id: @resource.id).first) %></p>

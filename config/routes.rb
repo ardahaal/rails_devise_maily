@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users
   mount MailyHerald::Webui::Engine => "/maily_webui"
+  mount MailyHerald::Engine => "/unsubscribe", :as => "maily_herald_engine"
 end
