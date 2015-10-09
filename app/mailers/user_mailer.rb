@@ -23,4 +23,8 @@ class UserMailer < Devise::Mailer
     @token = raw
     devise_mail(record, :unlock_instructions, opts)
   end
+
+  def weekly_newsletter
+    mail :subject => "Hi there #{user.email}!"
+  end
 end

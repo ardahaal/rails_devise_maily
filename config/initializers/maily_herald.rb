@@ -35,4 +35,13 @@ MailyHerald.setup do |config|
     mailing.mailer_name = "UserMailer"
     mailing.enable # mailings are disabled by default
   end
+
+  config.periodical_mailing :weekly_newsletter do |mailing|
+    mailing.title = "Weekly newsletter"
+    mailing.list = :all_users
+    mailing.mailer_name = "UserMailer"
+    mailing.start_at = Time.now + 5.minutes
+    mailing.period = 1.week
+    mailing.enable
+  end
 end
