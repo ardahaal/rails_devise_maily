@@ -9,16 +9,18 @@ class UserMailer < Devise::Mailer
   end
 
   def reset_password_instructions(record, opts={})
-    @token = record.reset_password_token
+    raw, enc = Devise.token_generator.generate(record.class, :reset_password_token)
+    record.reset_password_token = enc
+    record.save(:validate => false)
+    @token = raw
     devise_mail(record, :reset_password_instructions, opts)
   end
 
   def unlock_instructions(record, opts={})
-    @token = record.unlock_token
+    raw, enc = Devise.token_generator.generate(record.class, :unlock_token)
+    record.unlock_token = enc
+    record.save(:validate => false)
+    @token = raw
     devise_mail(record, :unlock_instructions, opts)
-  end
-
-  def password_change(record, opts={})
-    devise_mail(record, :password_change, opts)
   end
 end

@@ -14,31 +14,25 @@ MailyHerald.setup do |config|
     list.context_name = :all_users
   end
 
-  config.ad_hoc_mailing :confirmation_instructions do |mailing|
+  config.one_time_mailing :confirmation_instructions do |mailing|
     mailing.title = "Rails_Devise_Test_app - confirmation instructions"
     mailing.list = :all_users
-    mailing.mailer_name = "Devise::Mailer"
+    mailing.mailer_name = "UserMailer"
+    mailing.start_at = Proc.new{|user| user.created_at}
     mailing.enable # mailings are disabled by default
   end
 
   config.ad_hoc_mailing :reset_password_instructions do |mailing|
     mailing.title = "Rails_Devise_Test_app - reset password instructions"
     mailing.list = :all_users
-    mailing.mailer_name = "Devise::Mailer"
+    mailing.mailer_name = "UserMailer"
     mailing.enable # mailings are disabled by default
   end
 
   config.ad_hoc_mailing :unlock_instructions do |mailing|
     mailing.title = "Rails_Devise_Test_app - unlock instructions"
     mailing.list = :all_users
-    mailing.mailer_name = "Devise::Mailer"
-    mailing.enable # mailings are disabled by default
-  end
-
-  config.ad_hoc_mailing :password_change do |mailing|
-    mailing.title = "Rails_Devise_Test_app - password change"
-    mailing.list = :all_users
-    mailing.mailer_name = "Devise::Mailer"
+    mailing.mailer_name = "UserMailer"
     mailing.enable # mailings are disabled by default
   end
 end

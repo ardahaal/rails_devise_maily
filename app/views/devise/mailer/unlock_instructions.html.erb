@@ -8,4 +8,4 @@
 
 <hr/>
 
-<p><%= link_to 'Unsubscribe?', maily_herald_engine.maily_unsubscribe_url(MailyHerald::Subscription.where(entity_id: @resource.id).first) %></p>
+<p><%= link_to 'Unsubscribe from notifications?', maily_herald_engine.maily_unsubscribe_url(MailyHerald::Subscription.where(entity_id: @resource.id).first) %></p>

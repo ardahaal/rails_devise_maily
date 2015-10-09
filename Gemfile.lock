@@ -12,7 +12,7 @@ GIT
 
 GIT
   remote: git://github.com/Sology/maily_herald.git
-  revision: 18bd134ea3cc6433496c962903834156e7dd4434
+  revision: 4623bb21b63c3c6c43d6ed79dbbeb8990d73a339
   branch: development
   specs:
     maily_herald (0.8.0)
@@ -206,7 +206,7 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
-    selenium-webdriver (2.47.1)
+    selenium-webdriver (2.48.0)
       childprocess (~> 0.5)
       multi_json (~> 1.0)
       rubyzip (~> 1.0)
