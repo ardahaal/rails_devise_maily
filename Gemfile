@@ -8,8 +8,8 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
-gem 'maily_herald', github: 'Sology/maily_herald', branch: :development
-gem 'maily_herald-webui', github: 'Sology/maily_herald-webui', branch: :development
+gem 'maily_herald'
+gem 'maily_herald-webui'
 group :development, :test do
   gem 'byebug'
 end
